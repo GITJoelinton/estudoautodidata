@@ -6,11 +6,18 @@
     <p>Esta página é para gerenciar vendas.</p>
 </head>
 <body>
+    <div class="vendas">
+        <div class="campo"></div>
     <input type="number" id="preco" placeholder="Digite o preço do produto">
     <input type="number" id="quantidade" placeholder="Digite a quantidade">
-    <input type="number" id="pagamento" placeholder="Digite o valor pago">
+    <input type="text" id="tipoPagamento" placeholder="Digite o tipo de pagamento (à vista, prazo, cartão)">
+</div>
+<div class="button"></div>
     <button id="calcularTotal">Calcular Total</button>
+    <button id="limparCampos">Limpar Campos</button>
+    </div>
     <h2 id="totalVenda">Total da Venda: </h2>
-    
+    <script src="vendas.js"></script>
+
 </body>
 </html>

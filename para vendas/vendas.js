@@ -1,24 +1,27 @@
-const precoInput = document.getElementById("preco");
-const quantidadeInput = document.getElementById("quantidade");
-const calcularTotalButton = document.getElementById("calcularTotal");
-const limparButton = document.getElementById("limpar");
-const totalDisplay = document.getElementById("total");
+const total=document.getElementById('totalVenda');
+const botaoCalcular=document.getElementById('calcularTotal');
 
-calcularTotalButton.addEventListener("click", function() {
-    const preco = parseFloat(precoInput.value);
-    const quantidade = parseInt(quantidadeInput.value);
-    if (isNaN(preco) || isNaN(quantidade) || preco < 0 || quantidade < 0) {
-        totalDisplay.innerText = "Total: Entrada inválida";
+botaoCalcular.addEventListener('click',function(){
+    const precoUnitario=parseFloat(document.getElementById('preco').value);
+    const quantidade=parseInt(document.getElementById('quantidade').value);
+    const tipoPagamento=document.getElementById('tipoPagamento').value.toLowerCase();
+    let totalVenda=precoUnitario*quantidade;
+
+    if(tipoPagamento==='à vista'){
+        totalVenda*=0.9;
+    } else if(tipoPagamento==='prazo'){
+        totalVenda*=1.10; 
+    } else if(tipoPagamento==='cartão'){
+        totalVenda*=1.05; 
+    } else {
+        alert('Tipo de pagamento inválido. Use "à vista", "prazo" ou "cartão".');
         return;
     }
-    const total = preco * quantidade;
-    totalDisplay.innerText = "Total: R$ " + total.toFixed(2);
+    total.innerText='Total da Venda: R$ '+totalVenda.toFixed(2);
 });
-
-limparButton.addEventListener("click", function() {
-    precoInput.value = "";
-    quantidadeInput.value = "";
-    totalDisplay.innerText = "Total: ";
+botaolimpar.addEventListener('click',function(){
+    document.getElementById('preco').value='';
+    document.getElementById('quantidade').value='';
+    document.getElementById('tipoPagamento').value='';
+    total.innerText='Total da Venda: ';
 });
-const avista=total
-const
